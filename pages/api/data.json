@@ -1,7 +1,7 @@
 {
   "subjects": [
     {
-      "name": "dental material",
+      "name": "dental-material",
       "icon_img": "/icons/material.png",
       "description": " the 1500s, when an unknown printer took a galley of it to make a type specimen book. It has survived not only",
       "practical": [
@@ -34,7 +34,7 @@
       ]
     },
     {
-      "name": "dental anatomy",
+      "name": "dental-anatomy",
       "icon_img": "/icons/anatomy.png",
       "description": "piece of classical Latin literature from 45 BC, making it over 2000 years old",
 
