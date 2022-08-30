@@ -7,29 +7,53 @@
       "practical": [
         {
           "file_name": "practical 1",
-          "file_link": "https://docs.google.com/presentation/d/1rk8EtgfDYsvWMzJ2x_18MUPeRFam-TZW/edit?usp=sharing&ouid=104126981857640714955&rtpof=true&sd=true"
+          "file_link": "https://docs.google.com/presentation/d/1rk8EtgfDYsvWMzJ2x_18MUPeRFam-TZW/edit?usp=sharing&ouid=104126981857640714955&rtpof=true&sd=true",
+          "date": "20/01/2022",
+          "teacher_name": "ahmed ali",
+          "pages": 22,
+          "read_time": 23
         },
         {
           "file_name": "practical 2",
-          "file_link": "https://docs.google.com/presentation/d/1rk8EtgfDYsvWMzJ2x_18MUPeRFam-TZW/edit?usp=sharing&ouid=104126981857640714955&rtpof=true&sd=true"
-        },
-        {
-          "file_name": "practical 1",
-          "file_link": "https://docs.google.com/presentation/d/1rk8EtgfDYsvWMzJ2x_18MUPeRFam-TZW/edit?usp=sharing&ouid=104126981857640714955&rtpof=true&sd=true"
+          "file_link": "https://docs.google.com/presentation/d/1rk8EtgfDYsvWMzJ2x_18MUPeRFam-TZW/edit?usp=sharing&ouid=104126981857640714955&rtpof=true&sd=true",
+          "date": "18/02/2022",
+          "teacher_name": "ahmed ali",
+          "pages": 22,
+          "read_time": 23
         },
         {
           "file_name": "practical 2",
-          "file_link": "https://docs.google.com/presentation/d/1rk8EtgfDYsvWMzJ2x_18MUPeRFam-TZW/edit?usp=sharing&ouid=104126981857640714955&rtpof=true&sd=true"
+          "file_link": "https://docs.google.com/presentation/d/1rk8EtgfDYsvWMzJ2x_18MUPeRFam-TZW/edit?usp=sharing&ouid=104126981857640714955&rtpof=true&sd=true",
+          "date": "27/12/2022",
+          "teacher_name": "ahmed ali",
+          "pages": 22,
+          "read_time": 23
+        },
+        {
+          "file_name": "practical 2",
+          "file_link": "https://docs.google.com/presentation/d/1rk8EtgfDYsvWMzJ2x_18MUPeRFam-TZW/edit?usp=sharing&ouid=104126981857640714955&rtpof=true&sd=true",
+          "date": "21/04/2022",
+          "teacher_name": "ahmed ali",
+          "pages": 22,
+          "read_time": 23
         }
       ],
       "theoretical": [
         {
           "file_name": "practical 1",
-          "file_link": "https://docs.google.com/presentation/d/1rk8EtgfDYsvWMzJ2x_18MUPeRFam-TZW/edit?usp=sharing&ouid=104126981857640714955&rtpof=true&sd=true"
+          "file_link": "https://docs.google.com/presentation/d/1rk8EtgfDYsvWMzJ2x_18MUPeRFam-TZW/edit?usp=sharing&ouid=104126981857640714955&rtpof=true&sd=true",
+          "date": "20/05/2022",
+          "teacher_name": "ahmed ali",
+          "pages": 22,
+          "read_time": 23
         },
         {
           "file_name": "practical 2",
-          "file_link": "https://docs.google.com/presentation/d/1rk8EtgfDYsvWMzJ2x_18MUPeRFam-TZW/edit?usp=sharing&ouid=104126981857640714955&rtpof=true&sd=true"
+          "file_link": "https://docs.google.com/presentation/d/1rk8EtgfDYsvWMzJ2x_18MUPeRFam-TZW/edit?usp=sharing&ouid=104126981857640714955&rtpof=true&sd=true",
+          "date": "19/12/2022",
+          "teacher_name": "ahmed ali",
+          "pages": 22,
+          "read_time": 23
         }
       ]
     },
@@ -41,25 +65,141 @@
       "practical": [
         {
           "file_name": "practical 1",
-          "file_link": "https://docs.google.com/presentation/d/1rk8EtgfDYsvWMzJ2x_18MUPeRFam-TZW/edit?usp=sharing&ouid=104126981857640714955&rtpof=true&sd=true"
+          "file_link": "https://docs.google.com/presentation/d/1rk8EtgfDYsvWMzJ2x_18MUPeRFam-TZW/edit?usp=sharing&ouid=104126981857640714955&rtpof=true&sd=true",
+          "date": "16/02/2022",
+          "teacher_name": "ahmed ali",
+          "pages": 22,
+          "read_time": 23
+        },
+        {
+          "file_name": "practical 1",
+          "file_link": "https://docs.google.com/presentation/d/1rk8EtgfDYsvWMzJ2x_18MUPeRFam-TZW/edit?usp=sharing&ouid=104126981857640714955&rtpof=true&sd=true",
+          "date": "16/02/2022",
+          "teacher_name": "ahmed ali",
+          "pages": 22,
+          "read_time": 23
+        },
+        {
+          "file_name": "practical 1",
+          "file_link": "https://docs.google.com/presentation/d/1rk8EtgfDYsvWMzJ2x_18MUPeRFam-TZW/edit?usp=sharing&ouid=104126981857640714955&rtpof=true&sd=true",
+          "date": "16/02/2022",
+          "teacher_name": "ahmed ali",
+          "pages": 22,
+          "read_time": 23
+        },
+        {
+          "file_name": "practical 1",
+          "file_link": "https://docs.google.com/presentation/d/1rk8EtgfDYsvWMzJ2x_18MUPeRFam-TZW/edit?usp=sharing&ouid=104126981857640714955&rtpof=true&sd=true",
+          "date": "16/02/2022",
+          "teacher_name": "ahmed ali",
+          "pages": 22,
+          "read_time": 23
+        },
+        {
+          "file_name": "practical 1",
+          "file_link": "https://docs.google.com/presentation/d/1rk8EtgfDYsvWMzJ2x_18MUPeRFam-TZW/edit?usp=sharing&ouid=104126981857640714955&rtpof=true&sd=true",
+          "date": "16/02/2022",
+          "teacher_name": "ahmed ali",
+          "pages": 22,
+          "read_time": 23
+        },
+        {
+          "file_name": "practical 1",
+          "file_link": "https://docs.google.com/presentation/d/1rk8EtgfDYsvWMzJ2x_18MUPeRFam-TZW/edit?usp=sharing&ouid=104126981857640714955&rtpof=true&sd=true",
+          "date": "16/02/2022",
+          "teacher_name": "ahmed ali",
+          "pages": 22,
+          "read_time": 23
+        },
+        {
+          "file_name": "practical 1",
+          "file_link": "https://docs.google.com/presentation/d/1rk8EtgfDYsvWMzJ2x_18MUPeRFam-TZW/edit?usp=sharing&ouid=104126981857640714955&rtpof=true&sd=true",
+          "date": "16/02/2022",
+          "teacher_name": "ahmed ali",
+          "pages": 22,
+          "read_time": 23
+        },
+        {
+          "file_name": "practical 1",
+          "file_link": "https://docs.google.com/presentation/d/1rk8EtgfDYsvWMzJ2x_18MUPeRFam-TZW/edit?usp=sharing&ouid=104126981857640714955&rtpof=true&sd=true",
+          "date": "16/02/2022",
+          "teacher_name": "ahmed ali",
+          "pages": 22,
+          "read_time": 23
+        },
+        {
+          "file_name": "practical 1",
+          "file_link": "https://docs.google.com/presentation/d/1rk8EtgfDYsvWMzJ2x_18MUPeRFam-TZW/edit?usp=sharing&ouid=104126981857640714955&rtpof=true&sd=true",
+          "date": "16/02/2022",
+          "teacher_name": "ahmed ali",
+          "pages": 22,
+          "read_time": 23
+        },
+        {
+          "file_name": "practical 1",
+          "file_link": "https://docs.google.com/presentation/d/1rk8EtgfDYsvWMzJ2x_18MUPeRFam-TZW/edit?usp=sharing&ouid=104126981857640714955&rtpof=true&sd=true",
+          "date": "16/02/2022",
+          "teacher_name": "ahmed ali",
+          "pages": 22,
+          "read_time": 23
+        },
+        {
+          "file_name": "practical 1",
+          "file_link": "https://docs.google.com/presentation/d/1rk8EtgfDYsvWMzJ2x_18MUPeRFam-TZW/edit?usp=sharing&ouid=104126981857640714955&rtpof=true&sd=true",
+          "date": "16/02/2022",
+          "teacher_name": "ahmed ali",
+          "pages": 22,
+          "read_time": 23
+        },
+        {
+          "file_name": "practical 1",
+          "file_link": "https://docs.google.com/presentation/d/1rk8EtgfDYsvWMzJ2x_18MUPeRFam-TZW/edit?usp=sharing&ouid=104126981857640714955&rtpof=true&sd=true",
+          "date": "16/02/2022",
+          "teacher_name": "ahmed ali",
+          "pages": 22,
+          "read_time": 23
+        },
+        {
+          "file_name": "practical 1",
+          "file_link": "https://docs.google.com/presentation/d/1rk8EtgfDYsvWMzJ2x_18MUPeRFam-TZW/edit?usp=sharing&ouid=104126981857640714955&rtpof=true&sd=true",
+          "date": "16/02/2022",
+          "teacher_name": "ahmed ali",
+          "pages": 22,
+          "read_time": 23
         }
       ],
       "theoretical": [
         {
           "file_name": "practical 1",
-          "file_link": "https://docs.google.com/presentation/d/1rk8EtgfDYsvWMzJ2x_18MUPeRFam-TZW/edit?usp=sharing&ouid=104126981857640714955&rtpof=true&sd=true"
+          "file_link": "https://docs.google.com/presentation/d/1rk8EtgfDYsvWMzJ2x_18MUPeRFam-TZW/edit?usp=sharing&ouid=104126981857640714955&rtpof=true&sd=true",
+          "date": "23/06/2022",
+          "teacher_name": "ahmed ali",
+          "pages": 22,
+          "read_time": 23
         },
         {
           "file_name": "practical 2",
-          "file_link": "https://docs.google.com/presentation/d/1rk8EtgfDYsvWMzJ2x_18MUPeRFam-TZW/edit?usp=sharing&ouid=104126981857640714955&rtpof=true&sd=true"
+          "file_link": "https://docs.google.com/presentation/d/1rk8EtgfDYsvWMzJ2x_18MUPeRFam-TZW/edit?usp=sharing&ouid=104126981857640714955&rtpof=true&sd=true",
+          "date": "18/12/2022",
+          "teacher_name": "ahmed ali",
+          "pages": 22,
+          "read_time": 23
         },
         {
           "file_name": "practical 1",
-          "file_link": "https://docs.google.com/presentation/d/1rk8EtgfDYsvWMzJ2x_18MUPeRFam-TZW/edit?usp=sharing&ouid=104126981857640714955&rtpof=true&sd=true"
+          "file_link": "https://docs.google.com/presentation/d/1rk8EtgfDYsvWMzJ2x_18MUPeRFam-TZW/edit?usp=sharing&ouid=104126981857640714955&rtpof=true&sd=true",
+          "date": "21/08/2022",
+          "teacher_name": "ahmed ali",
+          "pages": 22,
+          "read_time": 23
         },
         {
           "file_name": "practical 2",
-          "file_link": "https://docs.google.com/presentation/d/1rk8EtgfDYsvWMzJ2x_18MUPeRFam-TZW/edit?usp=sharing&ouid=104126981857640714955&rtpof=true&sd=true"
+          "file_link": "https://docs.google.com/presentation/d/1rk8EtgfDYsvWMzJ2x_18MUPeRFam-TZW/edit?usp=sharing&ouid=104126981857640714955&rtpof=true&sd=true",
+          "date": "26/04/2022",
+          "teacher_name": "ahmed ali",
+          "pages": 22,
+          "read_time": 23
         }
       ]
     }
