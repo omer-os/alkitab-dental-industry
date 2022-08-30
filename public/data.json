@@ -1,0 +1,67 @@
+{
+  "subjects": [
+    {
+      "name": "dental material",
+      "icon_img": "/icons/material.png",
+      "description": " the 1500s, when an unknown printer took a galley of it to make a type specimen book. It has survived not only",
+      "practical": [
+        {
+          "file_name": "practical 1",
+          "file_link": "https://docs.google.com/presentation/d/1rk8EtgfDYsvWMzJ2x_18MUPeRFam-TZW/edit?usp=sharing&ouid=104126981857640714955&rtpof=true&sd=true"
+        },
+        {
+          "file_name": "practical 2",
+          "file_link": "https://docs.google.com/presentation/d/1rk8EtgfDYsvWMzJ2x_18MUPeRFam-TZW/edit?usp=sharing&ouid=104126981857640714955&rtpof=true&sd=true"
+        },
+        {
+          "file_name": "practical 1",
+          "file_link": "https://docs.google.com/presentation/d/1rk8EtgfDYsvWMzJ2x_18MUPeRFam-TZW/edit?usp=sharing&ouid=104126981857640714955&rtpof=true&sd=true"
+        },
+        {
+          "file_name": "practical 2",
+          "file_link": "https://docs.google.com/presentation/d/1rk8EtgfDYsvWMzJ2x_18MUPeRFam-TZW/edit?usp=sharing&ouid=104126981857640714955&rtpof=true&sd=true"
+        }
+      ],
+      "theoretical": [
+        {
+          "file_name": "practical 1",
+          "file_link": "https://docs.google.com/presentation/d/1rk8EtgfDYsvWMzJ2x_18MUPeRFam-TZW/edit?usp=sharing&ouid=104126981857640714955&rtpof=true&sd=true"
+        },
+        {
+          "file_name": "practical 2",
+          "file_link": "https://docs.google.com/presentation/d/1rk8EtgfDYsvWMzJ2x_18MUPeRFam-TZW/edit?usp=sharing&ouid=104126981857640714955&rtpof=true&sd=true"
+        }
+      ]
+    },
+    {
+      "name": "dental anatomy",
+      "icon_img": "/icons/anatomy.png",
+      "description": "piece of classical Latin literature from 45 BC, making it over 2000 years old",
+
+      "practical": [
+        {
+          "file_name": "practical 1",
+          "file_link": "https://docs.google.com/presentation/d/1rk8EtgfDYsvWMzJ2x_18MUPeRFam-TZW/edit?usp=sharing&ouid=104126981857640714955&rtpof=true&sd=true"
+        }
+      ],
+      "theoretical": [
+        {
+          "file_name": "practical 1",
+          "file_link": "https://docs.google.com/presentation/d/1rk8EtgfDYsvWMzJ2x_18MUPeRFam-TZW/edit?usp=sharing&ouid=104126981857640714955&rtpof=true&sd=true"
+        },
+        {
+          "file_name": "practical 2",
+          "file_link": "https://docs.google.com/presentation/d/1rk8EtgfDYsvWMzJ2x_18MUPeRFam-TZW/edit?usp=sharing&ouid=104126981857640714955&rtpof=true&sd=true"
+        },
+        {
+          "file_name": "practical 1",
+          "file_link": "https://docs.google.com/presentation/d/1rk8EtgfDYsvWMzJ2x_18MUPeRFam-TZW/edit?usp=sharing&ouid=104126981857640714955&rtpof=true&sd=true"
+        },
+        {
+          "file_name": "practical 2",
+          "file_link": "https://docs.google.com/presentation/d/1rk8EtgfDYsvWMzJ2x_18MUPeRFam-TZW/edit?usp=sharing&ouid=104126981857640714955&rtpof=true&sd=true"
+        }
+      ]
+    }
+  ]
+}
