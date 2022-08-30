@@ -1,63 +1,87 @@
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
-import { motion } from "framer-motion";
+import React, { useEffect, useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 export default function Index({ data }) {
+  const [Search, setSearch] = useState("");
+
   return (
     <div className="flex flex-col justify-center">
+      <div className="px-10 pt-10">
+        <input
+          type="text"
+          className="p-2 w-full rounded-xl bg-gray-800 text-gray-400 border border-gray-600"
+          placeholder="Search For Subjects"
+          value={Search}
+          onChange={(e) => setSearch(e.target.value)}
+        />
+      </div>
       <motion.div
         layout
-        className="grid p-10 lg:grid-cols-4 sm:grid-cols-2 auto-rows-[minmax(15em,max-content)] min-h-screen gap-4"
+        className="grid px-10 py-7 lg:grid-cols-4 sm:grid-cols-2 auto-rows-[minmax(15em,max-content)] min-h-screen gap-4"
       >
-        {data.map((subject, index) => (
-          <motion.div
-            key={subject.name + index}
-            layout
-            className="bg-gray-800 border border-gray-700 rounded-xl p-5 flex flex-col"
-          >
-            <div className="flex border-b pb-2 border-gray-700 items-center gap-2">
-              <div className="img rounded-full w-[3em] h-[3em] flex items-center justify-center bg-gradient-to-br from-indigo-600 to-indigo-700 ">
-                <Image
-                  src={subject.icon_img}
-                  width={20}
-                  height={20}
-                  layout="intrinsic"
-                  alt={"icon of " + subject.name}
-                />
-              </div>
+        <AnimatePresence>
+          {data
+            .filter((item) =>
+              item.name
+                .toLowerCase()
+                .replace("-", " ")
+                .includes(Search.toLowerCase())
+            )
+            .map((subject, index) => (
+              <motion.div
+                animate={{ scale: [0.9, 1], opacity: [0, 1] }}
+                exit={{ scale: 0.9, opacity: 0 }}
+                key={subject.name + index}
+                layout
+                className="bg-gray-800 border border-gray-700 rounded-xl p-5 flex flex-col"
+              >
+                <div className="flex border-b pb-2 border-gray-700 items-center gap-2">
+                  <div className="img rounded-full w-[3em] h-[3em] flex items-center justify-center bg-gradient-to-br from-indigo-600 to-indigo-700 ">
+                    <Image
+                      src={subject.icon_img}
+                      width={20}
+                      height={20}
+                      layout="intrinsic"
+                      alt={"icon of " + subject.name}
+                    />
+                  </div>
 
-              <div className="flex flex-col">
-                <div className="text-lg font-bold">{subject.name}</div>
-                <div className="text-gray-400 text-sm">
-                  total {subject.files_length} malazim
+                  <div className="flex flex-col">
+                    <div className="text-lg font-bold capitalize">
+                      {subject.name.replace("-", " ")}
+                    </div>
+                    <div className="text-gray-400 text-sm">
+                      total {subject.files_length} files
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </div>
 
-            <div className="text-gray-400 pt-2 flex-1">
-              {subject.description}
-            </div>
+                <div className="text-gray-400 pt-2 flex-1">
+                  {subject.description}
+                </div>
 
-            <div className="flex gap-3">
-              <Link href={"/subjects/" + subject.name.replace(" ", "-")}>
-                <a className="text-indigo-400 inline-flex items-center">
-                  All Pdf{"'"}s
-                  <svg
-                    fill="none"
-                    stroke="currentColor"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    className="w-4 h-4 ml-2"
-                    viewBox="0 0 24 24"
-                  >
-                    <path d="M5 12h14M12 5l7 7-7 7"></path>
-                  </svg>
-                </a>
-              </Link>
-            </div>
-          </motion.div>
-        ))}
+                <div className="flex gap-3">
+                  <Link href={"/subjects/" + subject.name.replace(" ", "-")}>
+                    <a className="text-indigo-400 flex hover:gap-2 gap-0 transition-all items-center">
+                      All Pdf{"'"}s
+                      <svg
+                        fill="none"
+                        stroke="currentColor"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        className="w-4 h-4 ml-2"
+                        viewBox="0 0 24 24"
+                      >
+                        <path d="M5 12h14M12 5l7 7-7 7"></path>
+                      </svg>
+                    </a>
+                  </Link>
+                </div>
+              </motion.div>
+            ))}
+        </AnimatePresence>
       </motion.div>
     </div>
   );

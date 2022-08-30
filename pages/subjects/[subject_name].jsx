@@ -10,6 +10,7 @@ export default function Index({ data }) {
   const [SelectedType, setSelectedType] = useState("practical");
   const [ShowFilters, setShowFilters] = useState(false);
   const [ShowFiltersButton, setShowFiltersButton] = useState(true);
+  const [SearchFilter, setSearchFilter] = useState("");
 
   return (
     <motion.div
@@ -27,18 +28,25 @@ export default function Index({ data }) {
           }
         }}
       >
-        <div className="capitalize pt-7 w-full text-center text-3xl font-bold">
-          {subject_name && subject_name.replace("-", " ")}
+        <div className="px-4 pt-10">
+          <input
+            type="text"
+            className="p-2 w-full rounded-xl bg-gray-800 text-gray-400 border border-gray-600"
+            placeholder="Search For Subjects"
+            value={SearchFilter}
+            onChange={(e) => setSearchFilter(e.target.value)}
+          />
         </div>
+        {/* <div className="capitalize pt-7 w-full text-center text-3xl font-bold">
+          {subject_name && subject_name.replace("-", " ")}
+        </div> */}
 
         <div
           className="grid gap-5 w-full 
-      sm:grid-cols-[minmax(150px,250px)_1fr] grid-cols-1 auto-rows-max px-10"
+      sm:grid-cols-[minmax(150px,250px)_1fr] grid-cols-1 auto-rows-max sm:px-10 px-4"
         >
           <motion.div
-            className={`bg-gray-800 border-gray-700 px-3 rounded-md flex flex-col h-[15em] overflow-y-scroll sm:sticky sm:left-0 sm:top-20 fixed bottom-[5em] right-4 overflow-hidden transition-all duration-400
-          sm:opacity-100 sm:!w-full
-          ${ShowFilters ? "" : "opacity-0 w-0"}`}
+            className={`bg-gray-800 border-gray-700 px-3 rounded-md hidden sm:flex flex-col h-[15em] overflow-y-scroll sticky left-0 top-20 overflow-hidden transition-all duration-400 w-full`}
           >
             <div className="text-lg sticky bg-gray-800 top-0 pt-2 left-0 border-b border-gray-700 font-bold pb-3">
               Categories
@@ -49,7 +57,7 @@ export default function Index({ data }) {
                 <div
                   key={type}
                   onClick={() => setSelectedType(type)}
-                  className="p-2 rounded-xl relative cursor-pointer active:scale-95 transition-all hover:bg-gray-700/40"
+                  className="p-2 capitalize rounded-xl relative cursor-pointer active:scale-95 transition-all hover:bg-gray-700/40"
                 >
                   {type}
                   {SelectedType === type && (
@@ -65,47 +73,62 @@ export default function Index({ data }) {
 
           <>
             <div className="right-container grid lg:grid-cols-3 md:grid-cols-2 mt-5 auto-rows-max overflow-y-scroll gap-3 pb-5">
-              {data[SelectedType].map((file, index) => (
-                <motion.div
-                  animate={{
-                    opacity: [0, 1],
-                    scale: [0.8, 1],
-                  }}
-                  key={index + "-" + file.file_name}
-                  className="bg-gray-800 py-4 px-5 rounded-xl flex gap-4"
-                >
-                  <div className="text-xl w-[2em] h-[2em] flex items-center justify-center font-bold bg-blue-700 rounded-full">
-                    {index + 1}
-                  </div>
-                  <div className="mt-1">
-                    <div className="text-xs text-gray-500">{file.date}</div>
-                    <div className="text-xl font-bold capitalize">
-                      {file.file_name}
+              <AnimatePresence>
+                {data[SelectedType].filter(
+                  (item) =>
+                    item.teacher_name
+                      .toLowerCase()
+                      .includes(SearchFilter.toLowerCase()) ||
+                    item.file_name
+                      .toLowerCase()
+                      .includes(SearchFilter.toLowerCase())
+                ).map((file, index) => (
+                  <motion.div
+                    layout
+                    animate={{
+                      opacity: [0, 1],
+                      scale: [0.8, 1],
+                    }}
+                    exit={{
+                      opacity: 0,
+                      scale: 0.8,
+                    }}
+                    key={index + "-" + file.file_name}
+                    className="bg-gray-800 py-4 px-5 rounded-xl flex gap-4"
+                  >
+                    <div className="text-xl w-[2em] h-[2em] flex items-center justify-center font-bold bg-blue-700 rounded-full">
+                      {index + 1}
                     </div>
-                    <div className="text-gray-400 text-sm capitalize">
-                      teacher: {file.teacher_name} <br />
-                      pages: {file.pages} <br />
-                      estimated read time: {file.read_time}m
+                    <div className="mt-1">
+                      <div className="text-xs text-gray-500">{file.date}</div>
+                      <div className="text-xl font-bold capitalize">
+                        {file.file_name}
+                      </div>
+                      <div className="text-gray-400 text-sm capitalize">
+                        teacher: {file.teacher_name} <br />
+                        pages: {file.pages} <br />
+                        estimated read time: {file.read_time}m
+                      </div>
+                      <Link href={file.file_link}>
+                        <a className="text-indigo-400 mt-3 hover:gap-2 transition-all gap-0 flex items-center">
+                          Read Now
+                          <svg
+                            fill="none"
+                            stroke="currentColor"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth="2"
+                            className="w-4 h-4 ml-2 mt-1"
+                            viewBox="0 0 24 24"
+                          >
+                            <path d="M5 12h14M12 5l7 7-7 7"></path>
+                          </svg>
+                        </a>
+                      </Link>
                     </div>
-                    <Link href={file.file_link}>
-                      <a className="text-indigo-400 mt-3 hover:gap-2 transition-all gap-0 flex items-center">
-                        Read Now
-                        <svg
-                          fill="none"
-                          stroke="currentColor"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth="2"
-                          className="w-4 h-4 ml-2 mt-1"
-                          viewBox="0 0 24 24"
-                        >
-                          <path d="M5 12h14M12 5l7 7-7 7"></path>
-                        </svg>
-                      </a>
-                    </Link>
-                  </div>
-                </motion.div>
-              ))}
+                  </motion.div>
+                ))}{" "}
+              </AnimatePresence>
             </div>
           </>
         </div>
