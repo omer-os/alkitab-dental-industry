@@ -36,7 +36,7 @@ export default function Index({ data }) {
       sm:grid-cols-[minmax(150px,250px)_1fr] grid-cols-1 auto-rows-max px-10"
         >
           <motion.div
-            className={` bg-gray-800 border-gray-700 px-3 rounded-md flex flex-col h-[15em] overflow-y-scroll sm:sticky sm:left-0 sm:top-20 fixed bottom-[5em] right-4 overflow-hidden transition-all duration-400
+            className={`bg-gray-800 border-gray-700 px-3 rounded-md flex flex-col h-[15em] overflow-y-scroll sm:sticky sm:left-0 sm:top-20 fixed bottom-[5em] right-4 overflow-hidden transition-all duration-400
           sm:opacity-100 sm:!w-full
           ${ShowFilters ? "" : "opacity-0 w-0"}`}
           >
@@ -87,7 +87,7 @@ export default function Index({ data }) {
                       pages: {file.pages} <br />
                       estimated read time: {file.read_time}m
                     </div>
-                    <Link href={"/subjects/"}>
+                    <Link href={file.file_link}>
                       <a className="text-indigo-400 mt-3 hover:gap-2 transition-all gap-0 flex items-center">
                         Read Now
                         <svg
