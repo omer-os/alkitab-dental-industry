@@ -1,8 +1,8 @@
 import { useRouter } from "next/router";
 import { AnimatePresence, motion } from "framer-motion";
-import { useEffect, useState } from "react";
-import { data } from "autoprefixer";
+import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Index({ data }) {
   const router = useRouter();
@@ -28,19 +28,6 @@ export default function Index({ data }) {
           }
         }}
       >
-        <div className="px-4 pt-10">
-          <input
-            type="text"
-            className="p-2 w-full rounded-xl bg-gray-800 text-gray-400 border border-gray-600"
-            placeholder="Search For Subjects"
-            value={SearchFilter}
-            onChange={(e) => setSearchFilter(e.target.value)}
-          />
-        </div>
-        {/* <div className="capitalize pt-7 w-full text-center text-3xl font-bold">
-          {subject_name && subject_name.replace("-", " ")}
-        </div> */}
-
         <div
           className="grid gap-5 w-full 
       sm:grid-cols-[minmax(150px,250px)_1fr] grid-cols-1 auto-rows-max sm:px-10 px-4"
@@ -73,6 +60,56 @@ export default function Index({ data }) {
 
           <>
             <div className="right-container grid lg:grid-cols-3 md:grid-cols-2 mt-5 auto-rows-max overflow-y-scroll gap-3 pb-5">
+              <div className="lg:col-span-3 p-1 sm:col-span-2">
+                <input
+                  type="text"
+                  className="p-2 w-full rounded-xl bg-gray-800 text-gray-400 border border-gray-600"
+                  placeholder="Search For Subjects"
+                  value={SearchFilter}
+                  onChange={(e) => setSearchFilter(e.target.value)}
+                />
+                <nav className="flex mt-8">
+                  <ol className="inline-flex items-center space-x-1 md:space-x-3">
+                    <li className="inline-flex items-center">
+                      <Link href="/">
+                        <a
+                          href="#"
+                          className="inline-flex items-center text-sm font-medium text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
+                        >
+                          <svg
+                            className="w-4 h-4 mr-2"
+                            fill="currentColor"
+                            viewBox="0 0 20 20"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"></path>
+                          </svg>
+                          Home
+                        </a>
+                      </Link>
+                    </li>
+                    <li>
+                      <div className="flex items-center">
+                        <svg
+                          className="w-6 h-6 text-gray-400"
+                          fill="currentColor"
+                          viewBox="0 0 20 20"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            fillRule="evenodd"
+                            d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                            clipRule="evenodd"
+                          ></path>
+                        </svg>
+                        <a className="ml-1 text-sm font-medium text-gray-700 hover:text-gray-900 md:ml-2 dark:text-gray-400 dark:hover:text-white">
+                          {subject_name}
+                        </a>
+                      </div>
+                    </li>
+                  </ol>
+                </nav>
+              </div>
               <AnimatePresence>
                 {data[SelectedType].filter(
                   (item) =>
@@ -112,22 +149,19 @@ export default function Index({ data }) {
                       <Link href={file.file_link}>
                         <a className="text-indigo-400 mt-3 hover:gap-2 transition-all gap-0 flex items-center">
                           Read Now
-                          <svg
-                            fill="none"
-                            stroke="currentColor"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth="2"
-                            className="w-4 h-4 ml-2 mt-1"
-                            viewBox="0 0 24 24"
-                          >
-                            <path d="M5 12h14M12 5l7 7-7 7"></path>
-                          </svg>
+                          <div className="ml-2 mt-2.5">
+                            <Image
+                              alt="right arrow"
+                              src="/icons/right-arrow.svg"
+                              width={30}
+                              height={30}
+                            />
+                          </div>
                         </a>
                       </Link>
                     </div>
                   </motion.div>
-                ))}{" "}
+                ))}
               </AnimatePresence>
             </div>
           </>
@@ -144,19 +178,57 @@ export default function Index({ data }) {
           onClick={() => setShowFilters(!ShowFilters)}
           className="fixed cursor-pointer active:scale-95 transition-all active:bg-blue-700 right-4 shadow-xl rounded-full w-[3.5em] h-[3.5em] bg-blue-600 flex items-center justify-center"
         >
-          <svg
-            className="w-6 h-6"
-            fill="currentColor"
-            viewBox="0 0 20 20"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              fillRule="evenodd"
-              d="M3 3a1 1 0 011-1h12a1 1 0 011 1v3a1 1 0 01-.293.707L12 11.414V15a1 1 0 01-.293.707l-2 2A1 1 0 018 17v-5.586L3.293 6.707A1 1 0 013 6V3z"
-              clipRule="evenodd"
-            ></path>
-          </svg>
+          <Image
+            alt="filters icon"
+            src="/icons/filters.svg"
+            width={30}
+            height={30}
+          />
         </motion.div>
+        <div className="fixed bottom-[6em] right-[1.1em] flex flex-col gap-3">
+          <motion.div
+            animate={{
+              bottom: ShowFilters ? 0 : -40,
+              opacity: ShowFilters ? 1 : 0,
+              transition: {
+                delay: 0.05,
+              },
+            }}
+            onClick={() => {
+              setShowFilters(false);
+              setSelectedType("practical");
+            }}
+            className="bg-blue-600 rounded-full w-[3.5em] h-[3.5em] flex items-center justify-center"
+          >
+            <Image
+              alt="practical icon"
+              src="/icons/practical.svg"
+              width={30}
+              height={30}
+            />
+          </motion.div>
+          <motion.div
+            animate={{
+              bottom: ShowFilters ? 0 : -40,
+              opacity: ShowFilters ? 1 : 0,
+              transition: {
+                delay: 0.1,
+              },
+            }}
+            onClick={() => {
+              setShowFilters(false);
+              setSelectedType("theoretical");
+            }}
+            className="bg-blue-600 rounded-full w-[3.5em] h-[3.5em] flex items-center justify-center"
+          >
+            <Image
+              alt="right theoretical icon"
+              src="/icons/theoretical.svg"
+              width={30}
+              height={30}
+            />
+          </motion.div>
+        </div>
       </div>
     </motion.div>
   );

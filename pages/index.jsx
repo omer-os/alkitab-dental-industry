@@ -7,7 +7,7 @@ export default function Index({ data }) {
 
   return (
     <div className="flex flex-col justify-center">
-      <div className="px-10 pt-10">
+      <div className="sm:w-3/6 mx-auto w-full px-10 pt-10">
         <input
           type="text"
           className="p-2 w-full rounded-xl bg-gray-800 text-gray-400 border border-gray-600"
@@ -18,7 +18,7 @@ export default function Index({ data }) {
       </div>
       <motion.div
         layout
-        className="grid px-10 py-7 lg:grid-cols-4 sm:grid-cols-2 auto-rows-[minmax(15em,max-content)] min-h-screen gap-4"
+        className="grid px-10 py-7 xl:grid-cols-4 sm:grid-cols-2 auto-rows-[minmax(15em,max-content)] min-h-screen gap-4"
       >
         <AnimatePresence>
           {data
@@ -63,19 +63,15 @@ export default function Index({ data }) {
 
                 <div className="flex gap-3">
                   <Link href={"/subjects/" + subject.name.replace(" ", "-")}>
-                    <a className="text-indigo-400 flex hover:gap-2 gap-0 transition-all items-center">
+                    <a className="text-indigo-400 flex hover:gap-2 gap-0 transition-all items-center mt-2">
                       All Pdf{"'"}s
-                      <svg
-                        fill="none"
-                        stroke="currentColor"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                        className="w-4 h-4 ml-2"
-                        viewBox="0 0 24 24"
-                      >
-                        <path d="M5 12h14M12 5l7 7-7 7"></path>
-                      </svg>
+                      <div className="relative w-[3em] mt-1 h-8">
+                        <Image
+                        alt="right arrow"
+                          src="/icons/right-arrow.svg"
+                          layout="fill"
+                        />
+                      </div>
                     </a>
                   </Link>
                 </div>
