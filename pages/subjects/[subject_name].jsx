@@ -81,7 +81,7 @@ export default function Index({ data }) {
                 <Breadcrumbs links={`${subject_name}/ssss/wwww`} />
               </div>
               <AnimatePresence>
-                {data
+                {data&&data
                   .filter((file) => file.type === SelectedType)
                   .map((file, index) => (
                     <motion.div
