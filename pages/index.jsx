@@ -2,8 +2,12 @@ import Image from "next/image";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
+import { db } from "../backend/firebase";
+import { getFirestore, doc, getDocs, setDoc,collection } from "firebase/firestore";
+
 export default function Index({ data }) {
   const [Search, setSearch] = useState("");
+
 
   return (
     <div className="flex flex-col justify-center">
@@ -67,7 +71,7 @@ export default function Index({ data }) {
                       All Pdf{"'"}s
                       <div className="relative w-[3em] mt-1 h-8">
                         <Image
-                        alt="right arrow"
+                          alt="right arrow"
                           src="/icons/right-arrow.svg"
                           layout="fill"
                         />
@@ -86,6 +90,14 @@ export default function Index({ data }) {
 export const getStaticProps = async () => {
   let res = await fetch(process.env.base_url + "/api/data?category=all");
   const data = await res.json();
+
+
+  
+
+
+
+
+
 
   return {
     props: {

@@ -25,7 +25,8 @@ export default function Index({ data }) {
                 key={CardData.title + index}
                 title={CardData.title}
                 date={CardData.date}
-                link={CardData.slug}
+                // link={CardData.slug}
+                link={" "}
                 subtitle={CardData.subtitle}
               />
             ))}
