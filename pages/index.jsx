@@ -10,7 +10,7 @@ export default function Index({ data }) {
       <div className="sm:w-3/6 mx-auto w-full px-10 pt-10">
         <input
           type="text"
-          className="p-2 w-full rounded-xl bg-gray-800 text-gray-400 border border-gray-600"
+          className="p-2 w-full rounded-xl bg-slate-800 text-gray-400 border border-gray-600"
           placeholder="Search For Subjects"
           value={Search}
           onChange={(e) => setSearch(e.target.value)}
@@ -34,7 +34,7 @@ export default function Index({ data }) {
                 exit={{ scale: 0.9, opacity: 0 }}
                 key={subject.name + index}
                 layout
-                className="bg-gray-800 border border-gray-700 rounded-xl p-5 flex flex-col"
+                className="bg-slate-800 border border-gray-700 rounded-xl p-5 flex flex-col"
               >
                 <div className="flex border-b pb-2 border-gray-700 items-center gap-2">
                   <div className="img rounded-full w-[3em] h-[3em] flex items-center justify-center bg-gradient-to-br from-indigo-600 to-indigo-700 ">

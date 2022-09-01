@@ -3,6 +3,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { Breadcrumbs } from "../../components/Files";
 
 export default function Index({ data }) {
   const router = useRouter();
@@ -25,6 +26,7 @@ export default function Index({ data }) {
             setShowFiltersButton(true);
           } else {
             setShowFiltersButton(false);
+            setShowFilters(false);
           }
         }}
       >
@@ -33,9 +35,9 @@ export default function Index({ data }) {
       sm:grid-cols-[minmax(150px,250px)_1fr] grid-cols-1 auto-rows-max sm:px-10 px-4"
         >
           <motion.div
-            className={`bg-gray-800 border-gray-700 px-3 rounded-md hidden sm:flex flex-col h-[15em] overflow-y-scroll sticky left-0 top-20 overflow-hidden transition-all duration-400 w-full`}
+            className={`bg-slate-800 border-gray-700 px-3 rounded-md hidden sm:flex flex-col h-[15em] overflow-y-scroll sticky left-0 top-20 overflow-hidden transition-all duration-400 w-full`}
           >
-            <div className="text-lg sticky bg-gray-800 top-0 pt-2 left-0 border-b border-gray-700 font-bold pb-3">
+            <div className="text-lg sticky bg-slate-800 top-0 pt-2 left-0 border-b border-gray-700 font-bold pb-3">
               Categories
             </div>
 
@@ -63,52 +65,13 @@ export default function Index({ data }) {
               <div className="lg:col-span-3 p-1 sm:col-span-2">
                 <input
                   type="text"
-                  className="p-2 w-full rounded-xl bg-gray-800 text-gray-400 border border-gray-600"
+                  className="p-2 w-full rounded-xl bg-slate-800 text-gray-400 border border-gray-600"
                   placeholder="Search For Subjects"
                   value={SearchFilter}
                   onChange={(e) => setSearchFilter(e.target.value)}
                 />
-                <nav className="flex mt-8">
-                  <ol className="inline-flex items-center space-x-1 md:space-x-3">
-                    <li className="inline-flex items-center">
-                      <Link href="/">
-                        <a
-                          href="#"
-                          className="inline-flex items-center text-sm font-medium text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
-                        >
-                          <svg
-                            className="w-4 h-4 mr-2"
-                            fill="currentColor"
-                            viewBox="0 0 20 20"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"></path>
-                          </svg>
-                          Home
-                        </a>
-                      </Link>
-                    </li>
-                    <li>
-                      <div className="flex items-center">
-                        <svg
-                          className="w-6 h-6 text-gray-400"
-                          fill="currentColor"
-                          viewBox="0 0 20 20"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            fillRule="evenodd"
-                            d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-                            clipRule="evenodd"
-                          ></path>
-                        </svg>
-                        <a className="ml-1 text-sm font-medium text-gray-700 hover:text-gray-900 md:ml-2 dark:text-gray-400 dark:hover:text-white">
-                          {subject_name}
-                        </a>
-                      </div>
-                    </li>
-                  </ol>
-                </nav>
+
+                <Breadcrumbs links={`${subject_name}/ssss/wwww`} />
               </div>
               <AnimatePresence>
                 {data[SelectedType].filter(
@@ -131,9 +94,9 @@ export default function Index({ data }) {
                       scale: 0.8,
                     }}
                     key={index + "-" + file.file_name}
-                    className="bg-gray-800 py-4 px-5 rounded-xl flex gap-4"
+                    className="bg-slate-800 py-4 px-5 rounded-xl flex gap-4"
                   >
-                    <div className="text-xl w-[2em] h-[2em] flex items-center justify-center font-bold bg-blue-700 rounded-full">
+                    <div className="text-xl w-[2em] h-[2em] flex items-center justify-center font-bold bg-gradient-to-br from-indigo-500 to-indigo-600 rounded-full">
                       {index + 1}
                     </div>
                     <div className="mt-1">
@@ -176,7 +139,7 @@ export default function Index({ data }) {
             },
           }}
           onClick={() => setShowFilters(!ShowFilters)}
-          className="fixed cursor-pointer active:scale-95 transition-all active:bg-blue-700 right-4 shadow-xl rounded-full w-[3.5em] h-[3.5em] bg-blue-600 flex items-center justify-center"
+          className="fixed cursor-pointer active:scale-95 transition-all active:bg-blue-700 right-4 shadow-xl rounded-full w-[3.5em] h-[3.5em] bg-gradient-to-br from-indigo-500 to-indigo-700 flex items-center justify-center"
         >
           <Image
             alt="filters icon"
@@ -185,7 +148,7 @@ export default function Index({ data }) {
             height={30}
           />
         </motion.div>
-        <div className="fixed bottom-[6em] right-[1.1em] flex flex-col gap-3">
+        <div className="fixed bottom-[5.5em] right-[1.1em] flex flex-col gap-3">
           <motion.div
             animate={{
               bottom: ShowFilters ? 0 : -40,
@@ -198,13 +161,13 @@ export default function Index({ data }) {
               setShowFilters(false);
               setSelectedType("practical");
             }}
-            className="bg-blue-600 rounded-full w-[3.5em] h-[3.5em] flex items-center justify-center"
+            className="transition-all  bg-gradient-to-br from-indigo-500 to-indigo-700 rounded-full w-[3em] h-[3em] flex items-center justify-center"
           >
             <Image
               alt="practical icon"
               src="/icons/practical.svg"
-              width={30}
-              height={30}
+              width={25}
+              height={25}
             />
           </motion.div>
           <motion.div
@@ -219,13 +182,13 @@ export default function Index({ data }) {
               setShowFilters(false);
               setSelectedType("theoretical");
             }}
-            className="bg-blue-600 rounded-full w-[3.5em] h-[3.5em] flex items-center justify-center"
+            className="transition-all bg-gradient-to-br from-indigo-500 to-indigo-700 rounded-full w-[3em] h-[3em] flex items-center justify-center"
           >
             <Image
               alt="right theoretical icon"
               src="/icons/theoretical.svg"
-              width={30}
-              height={30}
+              width={25}
+              height={25}
             />
           </motion.div>
         </div>

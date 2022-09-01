@@ -4,8 +4,9 @@ import React, { useState } from "react";
 export default function NavBar() {
   const [ShowMenuBar, setShowMenuBar] = useState(false);
   return (
-    <header className="text-gray-400 z-50 bg-slate-800 sticky top-0 left-0 body-font">
-      <nav className="flex items-center justify-between p-5 shadow-xl">
+    <header className="text-gray-400 z-50 bg-slate-800/50 = sticky top-0 left-0 body-font">
+      <div className="absolute z-10 top-0 w-full h-full backdrop-blur-2xl"></div>
+      <nav className="flex z-20 relative items-center justify-between p-5 shadow-xl">
         <div className="flex items-center justify-between items-center">
           <Link href="/">
             <a className="z-50 flex mr-6 border-r pr-3 border-slate-600 title-font font-medium text-white text-xl">
@@ -14,7 +15,7 @@ export default function NavBar() {
           </Link>
 
           <div
-            className={` sm:relative fixed top-0 sm:h-max sm:w-max w-full h-full bg-slate-800 sm:flex-row flex  sm:!right-0 items-center justify-center flex-col sm:text-sm text-xl gap-3 sm:gap-0 ${
+            className={` sm:relative fixed top-0 sm:h-max sm:w-max w-full h-full sm:bg-slate-800/0 bg-slate-800 sm:flex-row flex sm:!right-0 items-center justify-center flex-col sm:text-sm text-xl gap-3 sm:gap-0 ${
               ShowMenuBar ? "right-0" : "-right-full"
             } transition-all`}
           >
@@ -26,12 +27,12 @@ export default function NavBar() {
                 Home Page
               </a>
             </Link>
-            <Link href="/subjects/dental-material">
+            <Link href="/news">
               <a
                 onClick={() => setShowMenuBar(false)}
                 className="mr-5 hover:text-white"
               >
-                dental material
+                news
               </a>
             </Link>
           </div>
