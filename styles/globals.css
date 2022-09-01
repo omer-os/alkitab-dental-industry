@@ -8,3 +8,6 @@
     display: none;
     scroll-behavior: smooth;
 }
+*{
+    -webkit-tap-highlight-color: transparent;
+}

@@ -1,17 +1,40 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { getDocs } from "firebase/firestore";
+import { GetAllSubjects, GetSpecificSubject } from "../backend/firebase";
 
-export default function Test() {
+export default function Test({ allData }) {
+  // useEffect(() => {
+  //   console.log(allData);
+  // }, []);
+
   return (
     <div>
-      {/* <iframe
-        src="https://docs.google.com/presentation/d/e/2PACX-1vS6RutV93V1hZngwKP6fceti3lJvXe7e5e1hJWRjR_sZ-cGH3mnboL05jMAp7P3vg/embed?start=false&loop=false&delayms=3000"
-        frameborder="0"
-        width="100%"
-        height="100%"
-        allowfullscreen="true"
-        mozallowfullscreen="true"
-        webkitallowfullscreen="true"
-      ></iframe> */}
+      <div className="text-2xl mt-8 font-bold text-center">
+        Development pannel
+      </div>
     </div>
   );
 }
+
+// export const getStaticProps = async () => {
+//   const allData = await GetAllSubjects();
+//   const ids = [];
+//   allData.map((i) => {
+//     ids.push(i.id);
+//   });
+
+//   const ls = [];
+
+//   // const sub = GetSpecificSubject("GxPFbypjhTzEtjk4YXXf")
+//   // sub.then((dta)=>{
+//   //   console.log(dta.data());
+//   // })
+
+  
+//   return {
+//     props: {
+//       allData: allData,
+//     },
+//     revalidate: 10,
+//   };
+// };

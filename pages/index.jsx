@@ -2,12 +2,11 @@ import Image from "next/image";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { subjectsCol } from "../backend/firebase";
+import { GetAllSubjects, subjectsCol } from "../backend/firebase";
 import { getDocs } from "firebase/firestore";
 
 export default function Index({ allData }) {
   const [Search, setSearch] = useState("");
-
   return (
     <div className="flex flex-col justify-center">
       <div className="sm:w-3/6 mx-auto w-full px-10 pt-10">
@@ -25,7 +24,7 @@ export default function Index({ allData }) {
       >
         <AnimatePresence>
           {allData &&
-            JSON.parse(allData)
+            allData
               .filter((item) =>
                 item.name
                   .toLowerCase()
@@ -88,20 +87,11 @@ export default function Index({ allData }) {
 }
 
 export const getStaticProps = async () => {
-  // let res = await fetch(process.env.base_url + "/api/data?category=all");
-  // const data = await res.json();
-
-  const DocsData = await getDocs(subjectsCol);
-
-  const allData = [];
-
-  DocsData.docs.map((i) => {
-    allData.push(i.data());
-  });
+  const allData = await GetAllSubjects();
 
   return {
     props: {
-      allData: JSON.stringify(allData),
+      allData: allData,
     },
     revalidate: 10,
   };

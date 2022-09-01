@@ -6,6 +6,9 @@ import {
   getDoc,
   getDocs,
   getFirestore,
+  query,
+  setDoc,
+  where,
 } from "firebase/firestore";
 const firebaseConfig = {
   apiKey: "AIzaSyC4NwvR2uYMAMGZk4t-IntEm5-ezLY1Zw4",
@@ -17,11 +20,59 @@ const firebaseConfig = {
   appId: "1:13930404191:web:2c4f7c6f88c939c8e1feea",
   measurementId: "G-0NHX1DCGV0",
 };
-
 const app = initializeApp(firebaseConfig);
 
-const db = getFirestore(app);
+export const db = getFirestore(app);
 export const subjectsCol = collection(db, "subjects");
+
+export const GetAllSubjects = async () => {
+  const DocsData = await getDocs(subjectsCol);
+
+  var allData = [];
+
+  DocsData.docs.map((i) => {
+    const itemDta = {
+      name: i.data().name,
+      description: i.data().description,
+      icon_img: i.data().icon_img,
+      id: i.id,
+    };
+    allData.push(itemDta);
+  });
+
+  return allData;
+};
+
+export const GetSpecificSubject = async (subjectId) => {
+  // const data = await getDoc();
+  const subCol = collection(doc(db, "subjects/" + subjectId), "practical");
+  const DocsData = await getDocs(subCol);
+
+  var allData = [];
+
+  DocsData.docs.map((i) => {
+    allData.push(i.data());
+  });
+
+  return allData;
+};
+
+export const GetSubjectFilesFromSubjectName = async (subjectName) => {
+  const q = query(subjectsCol, where("name", "==", subjectName));
+  const ref = await getDocs(q);
+
+  const colRef = collection(doc(db, "subjects/" + ref.docs[0].id), "files");
+
+  const allFiles = await getDocs(colRef);
+
+  let ls = [];
+
+  allFiles.docs.map((i) => {
+    ls.push(i.data());
+  });
+
+  return ls;
+};
 
 // const data = [
 //   {
@@ -29,22 +80,22 @@ export const subjectsCol = collection(db, "subjects");
 //     icon_img: "/icons/material.png",
 //     description:
 //       "Dental materials include the natural tissues (enamel, dentin, other intraoral tissues) and biocompatible synthetic materials (metals, ceramics, etc...) used to restore decayed, damaged, or fractured teeth.",
-//     practical: [
+//     files: [
 //       {
 //         file_name: "Weescap",
 //         file_link:
 //           "https://docs.google.com/presentation/d/1rk8EtgfDYsvWMzJ2x_18MUPeRFam-TZW/edit?usp=sharing&ouid=104126981857640714955&rtpof=true&sd=true",
 //         teacher_name: "Alma Mendez",
 //         read_time: 10,
+//         type: "practical",
 //       },
-//     ],
-//     theoretical: [
 //       {
 //         file_name: "Efeifigo",
 //         file_link:
 //           "https://docs.google.com/presentation/d/1rk8EtgfDYsvWMzJ2x_18MUPeRFam-TZW/edit?usp=sharing&ouid=104126981857640714955&rtpof=true&sd=true",
 //         teacher_name: "Linnie Ingram",
 //         read_time: 15,
+//         type: "theoretical",
 //       },
 //     ],
 //   },
@@ -54,188 +105,45 @@ export const subjectsCol = collection(db, "subjects");
 //     description:
 //       "field of anatomy dedicated to the study of human tooth structures. The development, appearance, and classification of teeth fall within its purview.",
 
-//     practical: [
+//     files: [
 //       {
-//         file_name: "Pusjojo",
+//         file_name: "Weescap",
 //         file_link:
 //           "https://docs.google.com/presentation/d/1rk8EtgfDYsvWMzJ2x_18MUPeRFam-TZW/edit?usp=sharing&ouid=104126981857640714955&rtpof=true&sd=true",
-//         teacher_name: "Blanche Poole",
-//         read_time: 42,
+//         teacher_name: "Alma Mendez",
+//         read_time: 10,
+//         type: "practical",
 //       },
 //       {
-//         file_name: "Folgiwor",
+//         file_name: "Efeifigo",
 //         file_link:
 //           "https://docs.google.com/presentation/d/1rk8EtgfDYsvWMzJ2x_18MUPeRFam-TZW/edit?usp=sharing&ouid=104126981857640714955&rtpof=true&sd=true",
-//         teacher_name: "Janie Swanson",
-//         read_time: 46,
-//       },
-//       {
-//         file_name: "Tunopic",
-//         file_link:
-//           "https://docs.google.com/presentation/d/1rk8EtgfDYsvWMzJ2x_18MUPeRFam-TZW/edit?usp=sharing&ouid=104126981857640714955&rtpof=true&sd=true",
-//         teacher_name: "Ellen Carroll",
-//         read_time: 99,
-//       },
-//       {
-//         file_name: "Zuzowki",
-//         file_link:
-//           "https://docs.google.com/presentation/d/1rk8EtgfDYsvWMzJ2x_18MUPeRFam-TZW/edit?usp=sharing&ouid=104126981857640714955&rtpof=true&sd=true",
-//         teacher_name: "Kyle Wagner",
-//         read_time: 40,
-//       },
-//       {
-//         file_name: "Jonrarezo",
-//         file_link:
-//           "https://docs.google.com/presentation/d/1rk8EtgfDYsvWMzJ2x_18MUPeRFam-TZW/edit?usp=sharing&ouid=104126981857640714955&rtpof=true&sd=true",
-//         teacher_name: "Lula Gibson",
-//         read_time: 69,
-//       },
-//       {
-//         file_name: "Pulami",
-//         file_link:
-//           "https://docs.google.com/presentation/d/1rk8EtgfDYsvWMzJ2x_18MUPeRFam-TZW/edit?usp=sharing&ouid=104126981857640714955&rtpof=true&sd=true",
-//         teacher_name: "Rachel McDaniel",
-//         read_time: 67,
-//       },
-//       {
-//         file_name: "Ipasigvo",
-//         file_link:
-//           "https://docs.google.com/presentation/d/1rk8EtgfDYsvWMzJ2x_18MUPeRFam-TZW/edit?usp=sharing&ouid=104126981857640714955&rtpof=true&sd=true",
-//         teacher_name: "Jeff Wood",
-//         read_time: 26,
-//       },
-//       {
-//         file_name: "Taocbul",
-//         file_link:
-//           "https://docs.google.com/presentation/d/1rk8EtgfDYsvWMzJ2x_18MUPeRFam-TZW/edit?usp=sharing&ouid=104126981857640714955&rtpof=true&sd=true",
-//         teacher_name: "Lawrence Allen",
-//         read_time: 55,
-//       },
-//       {
-//         file_name: "Evomutsuv",
-//         file_link:
-//           "https://docs.google.com/presentation/d/1rk8EtgfDYsvWMzJ2x_18MUPeRFam-TZW/edit?usp=sharing&ouid=104126981857640714955&rtpof=true&sd=true",
-//         teacher_name: "Essie Lucas",
-//         read_time: 19,
-//       },
-//       {
-//         file_name: "Darobsab",
-//         file_link:
-//           "https://docs.google.com/presentation/d/1rk8EtgfDYsvWMzJ2x_18MUPeRFam-TZW/edit?usp=sharing&ouid=104126981857640714955&rtpof=true&sd=true",
-//         teacher_name: "Craig Murphy",
-//         read_time: 33,
-//       },
-//       {
-//         file_name: "Pojwahmu",
-//         file_link:
-//           "https://docs.google.com/presentation/d/1rk8EtgfDYsvWMzJ2x_18MUPeRFam-TZW/edit?usp=sharing&ouid=104126981857640714955&rtpof=true&sd=true",
-//         teacher_name: "Arthur Moody",
-//         read_time: 70,
-//       },
-//       {
-//         file_name: "Cevufsob",
-//         file_link:
-//           "https://docs.google.com/presentation/d/1rk8EtgfDYsvWMzJ2x_18MUPeRFam-TZW/edit?usp=sharing&ouid=104126981857640714955&rtpof=true&sd=true",
-//         teacher_name: "Shane Chandler",
-//         read_time: 67,
-//       },
-//       {
-//         file_name: "Onuogki",
-//         file_link:
-//           "https://docs.google.com/presentation/d/1rk8EtgfDYsvWMzJ2x_18MUPeRFam-TZW/edit?usp=sharing&ouid=104126981857640714955&rtpof=true&sd=true",
-//         teacher_name: "Emma Bell",
+//         teacher_name: "Linnie Ingram",
 //         read_time: 15,
-//       },
-//     ],
-//     theoretical: [
-//       {
-//         file_name: "Rawwivse",
-//         file_link:
-//           "https://docs.google.com/presentation/d/1rk8EtgfDYsvWMzJ2x_18MUPeRFam-TZW/edit?usp=sharing&ouid=104126981857640714955&rtpof=true&sd=true",
-//         teacher_name: "Mable Cox",
-//         read_time: 73,
-//       },
-//       {
-//         file_name: "practical 2",
-//         file_link:
-//           "https://docs.google.com/presentation/d/1rk8EtgfDYsvWMzJ2x_18MUPeRFam-TZW/edit?usp=sharing&ouid=104126981857640714955&rtpof=true&sd=true",
-//         teacher_name: "Donald Daniel",
-//         read_time: 34,
-//       },
-//       {
-//         file_name: "Ezzovew",
-//         file_link:
-//           "https://docs.google.com/presentation/d/1rk8EtgfDYsvWMzJ2x_18MUPeRFam-TZW/edit?usp=sharing&ouid=104126981857640714955&rtpof=true&sd=true",
-//         teacher_name: "Alejandro Morgan",
-//         read_time: 32,
-//       },
-//       {
-//         file_name: "practical 2",
-//         file_link:
-//           "https://docs.google.com/presentation/d/1rk8EtgfDYsvWMzJ2x_18MUPeRFam-TZW/edit?usp=sharing&ouid=104126981857640714955&rtpof=true&sd=true",
-//         teacher_name: "Lester Bryant",
-//         read_time: 99,
+//         type: "theoretical",
 //       },
 //     ],
 //   },
 // ];
 
-// data.map((item, index) => {
-//   addDoc(subjectsCol, {
-//     name: item.name,
-//     icon_img: item.icon_img,
-//     description: item.description,
+// adding subjects :
+
+// data.map((subject) => {
+//   addDoc(collection(db, "subjects"), {
+//     name: subject.name,
+//     icon_img: subject.icon_img,
+//     description: subject.description,
 //   });
 // });
 
-// getDocs(subjectsCol).then((snap) => {
-//   snap.forEach((item) => {
-//     // item.id
-//     const docRef = doc(db, "subjects", item.id);
-//     const practicalCollection = collection(docRef, "practical");
-//     const theoreticalCollection = collection(docRef, "theoretical");
-//     const selectedData = data.filter((i) => i.name === item.data().name)[0];
+// adding fils :
 
-//     selectedData.practical.forEach((i) => {
-//       addDoc(practicalCollection, i);
-//     });
-//     selectedData.theoretical.forEach((i) => {
-//       addDoc(theoreticalCollection, i);
-//     });
+// data.map(async (sub) => {
+//   const q = query(subjectsCol, where("name", "==", sub.name));
+//   const DocRef = await getDocs(q);
+
+//   const colRef = collection(doc(db, "subjects/" + DocRef.docs[0].id), "files");
+//   sub.files.map((file) => {
+//     addDoc(colRef, file);
 //   });
 // });
-
-// const docRef = doc(db, "subjects", "test")
-// const docSnap = getDoc(docRef)
-// docSnap.then((data)=>{
-//     console.log(data.data());
-// })
-
-
-
-
-
-
-
-
-
-
-
-
-
-// for index.jsx page
-
-// const allSubjectsRef = getDocs(subjectsCol)
-// const allSubjects = []
-// allSubjectsRef.then((snap)=>snap.forEach((i)=>allSubjects.push(i)))
-
-
-// export {allSubjects}
-
-
-
-
-
-
-
-
