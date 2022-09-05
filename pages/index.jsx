@@ -28,7 +28,7 @@ export default function Index() {
       subtitle:
         "io ab, aliquam fugit excepturi asperiores minus recusandae nisi doloremque, tenetur.",
       files: 12,
-      slug: "sental-material",
+      slug: "dental-material",
       img: "https://static8.depositphotos.com/1571889/1059/i/450/depositphotos_10594224-stock-photo-dental-tools-in-blue.jpg",
     },
     {
