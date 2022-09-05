@@ -1,15 +1,12 @@
-import { getDocs } from "firebase/firestore";
-import { subjectsCol } from "../backend/firebase";
-import { Layout } from "../components/Files";
 import "../styles/globals.css";
 
 function MyApp({ Component, pageProps, AllSubjects }) {
-  return (
-    <Layout>
-      <Component {...pageProps} AllSubjects={AllSubjects} />
-    </Layout>
-  );
+  // this is for pages other than defaullt layouts
+  if (Component.getLayout) {
+    return Component.getLayout(<Component {...pageProps} />);
+  }
+
+  return <Component {...pageProps} AllSubjects={AllSubjects} />;
 }
 
 export default MyApp;
-

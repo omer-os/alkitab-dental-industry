@@ -8,7 +8,7 @@ export default function handler(req, res) {
       title: nw.title,
       subtitle: nw.subtitle,
       date: nw.date,
-      slug: nw.slug,
+    slug: nw.slug,
     })
   );
   res.status(200).json({

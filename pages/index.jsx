@@ -1,98 +1,71 @@
-import Image from "next/image";
+import {
+  Typography,
+  Snackbar,
+  IconButton,
+  Card,
+  CardMedia,
+  CardContent,
+  CardActions,
+  Button,
+  CardHeader,
+  Avatar,
+  CardActionArea,
+  Divider,
+} from "@mui/material";
+import { Box, Container } from "@mui/system";
+import { HomeLayout } from "../components/Files";
+import NotificationsNoneRoundedIcon from "@mui/icons-material/NotificationsNoneRounded";
+import { blue } from "@mui/material/colors";
+import { motion } from "framer-motion";
 import Link from "next/link";
-import React, { useEffect, useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
-import { GetAllSubjects, subjectsCol } from "../backend/firebase";
-import { getDocs } from "firebase/firestore";
+import CardContainer from "../components/home/CardContainer";
+import LastestBlogs from "../components/home/LastestBlogs";
 
-export default function Index({ allData }) {
-  const [Search, setSearch] = useState("");
+export default function Index() {
+  const subjects = [
+    {
+      title: "dental material",
+      subtitle:
+        "io ab, aliquam fugit excepturi asperiores minus recusandae nisi doloremque, tenetur.",
+      files: 12,
+      slug: "sental-material",
+      img: "https://static8.depositphotos.com/1571889/1059/i/450/depositphotos_10594224-stock-photo-dental-tools-in-blue.jpg",
+    },
+    {
+      title: "dental anatomy",
+      subtitle:
+        "am porro assumenda repellendus est delectus et, commodi ipsum explicabo voluptatem a blanditiis.",
+      files: 10,
+      slug: "dental-anatomy",
+      img: "https://t3.ftcdn.net/jpg/03/87/25/28/360_F_387252880_hE0QVHOJ6bZE3cUCYCiaYTTb1WADsdlQ.jpg",
+    },
+    {
+      title: "prosthodontics",
+      subtitle:
+        "quaerat, possimus asperiores ad doloremque debitis modi saepe eveniet, repellendus eius! Harum eveniet unde necessitatibus provident minima nobis magnam aspernatur susc.",
+      files: 23,
+      slug: "prosthodontics",
+      img: "https://c1.wallpaperflare.com/preview/289/347/808/zahnreinigung-dental-repairs-treat-teeth-brushing-teeth.jpg",
+    },
+  ];
+
   return (
-    <div className="flex flex-col justify-center">
-      <div className="sm:w-3/6 mx-auto w-full px-10 pt-10">
-        <input
-          type="text"
-          className="p-2 w-full rounded-xl bg-slate-800 text-gray-400 border border-gray-600"
-          placeholder="Search For Subjects"
-          value={Search}
-          onChange={(e) => setSearch(e.target.value)}
-        />
+    <div className="py-4 px-6">
+      <div className="flex justify-end">
+        <IconButton>
+          <NotificationsNoneRoundedIcon color="primary" />
+        </IconButton>
       </div>
-      <motion.div
-        layout
-        className="grid px-10 py-7 xl:grid-cols-4 sm:grid-cols-2 auto-rows-[minmax(15em,max-content)] min-h-screen gap-4"
-      >
-        <AnimatePresence>
-          {allData &&
-            allData
-              .filter((item) =>
-                item.name
-                  .toLowerCase()
-                  .replace("-", " ")
-                  .includes(Search.toLowerCase())
-              )
-              .map((subject, index) => (
-                <motion.div
-                  animate={{ scale: [0.9, 1], opacity: [0, 1] }}
-                  exit={{ scale: 0.9, opacity: 0 }}
-                  key={subject.name + index}
-                  layout
-                  className="bg-slate-800 border border-gray-700 rounded-xl p-5 flex flex-col"
-                >
-                  <div className="flex border-b pb-2 border-gray-700 items-center gap-2">
-                    <div className="img rounded-full w-[3em] h-[3em] flex items-center justify-center bg-gradient-to-br from-indigo-600 to-indigo-700 ">
-                      <Image
-                        src={subject.icon_img}
-                        width={20}
-                        height={20}
-                        layout="intrinsic"
-                        alt={"icon of " + subject.name}
-                      />
-                    </div>
 
-                    <div className="flex flex-col">
-                      <div className="text-lg font-bold capitalize">
-                        {subject.name.replace("-", " ")}
-                      </div>
-                      <div className="text-gray-400 text-sm">
-                        total {subject.files_length} files
-                      </div>
-                    </div>
-                  </div>
+      <Typography variant="h1">Categories</Typography>
+      <CardContainer subjects={subjects} />
+      <Divider className="mt-8" sx={{ height: 3 }} />
 
-                  <div className="text-gray-400 pt-2 flex-1">
-                    {subject.description}
-                  </div>
-
-                  <div className="flex gap-3">
-                    <Link href={"/subjects/" + subject.name.replace(" ", "-")}>
-                      <a className="text-indigo-400 flex hover:gap-2 gap-0 transition-all items-center mt-2">
-                        All Pdf{"'"}s
-                        <div className="relative w-[3em] mt-1 h-8">
-                          <Image
-                            alt="right arrow"
-                            src="/icons/right-arrow.svg"
-                            layout="fill"
-                          />
-                        </div>
-                      </a>
-                    </Link>
-                  </div>
-                </motion.div>
-              ))}
-        </AnimatePresence>
-      </motion.div>
+      <LastestBlogs />
     </div>
   );
 }
 
-export const getStaticProps = async () => {
-  const allData = await GetAllSubjects();
-
-  return {
-    props: {
-      allData: allData,
-    },
-    revalidate: 10,
-  };
+Index.getLayout = function getLayout(page) {
+  return <HomeLayout>{page}</HomeLayout>;
 };
