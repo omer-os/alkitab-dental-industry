@@ -19,6 +19,7 @@ export default function BottomNav() {
         right: 0,
         bgcolor: "background",
       }}
+      className="z-40"
     >
       <Link href="/">
         <BottomNavigationAction

@@ -1,7 +1,3 @@
-import HomeLayout from "./Layouts/HomeLayout";
+import MainLayout from "./Layouts/MainLayout";
 
-
-
-export {
-    HomeLayout
-}
+export { MainLayout };

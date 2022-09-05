@@ -14,14 +14,13 @@ import {
   Toolbar,
   Typography,
 } from "@mui/material";
-import { HomeMaxRounded } from "@mui/icons-material";
-
+import HomeRoundedIcon from '@mui/icons-material/HomeRounded';
 export default function MyAppBar() {
   const [OpenMenu, setOpenMenu] = useState(false);
 
   return (
     <>
-      <AppBar position="sticky">
+      <AppBar className="z-40" position="sticky">
         <Toolbar className="flex bg-zinc-900 justify-between items-center py-4">
           <Typography variant="h6" fontWeight={600}>
             All Pdfs
@@ -32,21 +31,18 @@ export default function MyAppBar() {
         </Toolbar>
       </AppBar>
 
-      <Drawer
-        variant="persistent"
-        anchor="left"
-        open={OpenMenu}
-        onClose={() => setOpenMenu(false)}
-      >
+      
+
+      <Drawer anchor={"left"} open={OpenMenu} onClose={()=>setOpenMenu(false)}>
         <List>
-          <ListItem disablePadding>
-            <ListItemButton>
-              <ListItemIcon>
-                <HomeMaxRounded />
-              </ListItemIcon>
-              <ListItemText>home page</ListItemText>
-            </ListItemButton>
-          </ListItem>
+          <ListItemButton>
+            <ListItemIcon>
+              <HomeRoundedIcon />
+            </ListItemIcon>
+            <ListItemText>
+              Home Page
+            </ListItemText>
+          </ListItemButton>
         </List>
       </Drawer>
     </>

@@ -4,8 +4,9 @@ import { Box } from "@mui/system";
 import BottomNav from "./BottomNav";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import MyAppBar from "./MyAppBar";
-
-export default function HomeLayout({ children }) {
+import KeyboardArrowUpRoundedIcon from "@mui/icons-material/KeyboardArrowUpRounded";
+import { ButtonBase, IconButton } from "@mui/material";
+export default function MainLayout({ children }) {
   return (
     <ThemeProvider theme={themeOptions}>
       <MyAppBar />
@@ -13,7 +14,7 @@ export default function HomeLayout({ children }) {
         <Box
           sx={{
             maxWidth: {
-              sm: "40em",
+              sm: "30em",
             },
             margin: "auto",
           }}
@@ -25,6 +26,26 @@ export default function HomeLayout({ children }) {
           <BottomNav />
         </Box>
       </Box>
+
+     
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      
     </ThemeProvider>
   );
 }

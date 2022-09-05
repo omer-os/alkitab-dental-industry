@@ -13,7 +13,7 @@ import {
   Divider,
 } from "@mui/material";
 import { Box, Container } from "@mui/system";
-import { HomeLayout } from "../components/Files";
+import { MainLayout } from "../components/Files";
 import NotificationsNoneRoundedIcon from "@mui/icons-material/NotificationsNoneRounded";
 import { blue } from "@mui/material/colors";
 import { motion } from "framer-motion";
@@ -51,8 +51,7 @@ export default function Index() {
 
   return (
     <div className="py-4 px-6">
-
-      <Typography variant="h1">Categories</Typography>
+      <Typography variant="h1">All Categories</Typography>
       <CardContainer subjects={subjects} />
       <Divider className="mt-8" sx={{ height: 3 }} />
 
@@ -62,5 +61,5 @@ export default function Index() {
 }
 
 Index.getLayout = function getLayout(page) {
-  return <HomeLayout>{page}</HomeLayout>;
+  return <MainLayout>{page}</MainLayout>;
 };
