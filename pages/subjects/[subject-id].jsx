@@ -1,66 +1,49 @@
-import { Avatar, Box, Tab, Tabs, Typography } from "@mui/material";
+import {
+  Avatar,
+  Box,
+  FormControl,
+  InputLabel,
+  MenuItem,
+  Select,
+  Tab,
+  Tabs,
+  Typography,
+} from "@mui/material";
 import React, { useState } from "react";
 import { HomeLayout } from "../../components/Files";
+import { DataGrid } from "@mui/x-data-grid";
 
 export default function SubjectId() {
   const [value, setValue] = useState(0);
-  const handleChange = (event, newValue) => {
-    setValue(newValue);
-  };
+
+  const [SelectedType, setSelectedType] = useState(0);
+  const [SelectedDate, setSelectedDate] = useState(0);
 
   return (
-    <div className="py-4 px-5">
+    <div className="py-4 px-5 flex flex-col gap-5">
       <div className="text-2xl font-bold mb-3 ">Dental Material</div>
-      <Box>
-        <Tabs
-          value={value}
-          onChange={handleChange}
-          aria-label="basic tabs example"
-        >
-          <Tab label="before midyear" />
-          <Tab label="after midyear" />
-        </Tabs>
-      </Box>
-      <TabPanel value={value} index={0}>
-        <div className="flex flex-col">
-          <div className="flex">
-            <div className="mr-2">
-              <Avatar sx={{ bgcolor: "blue", color: "white" }}>1</Avatar>
-            </div>
-            <div className="flex flex-col">
-              <div className="font-bold">file 1</div>
-            </div>
-          </div>
-        </div>
-      </TabPanel>
-      <TabPanel value={value} index={1}>
-        Item Two
-      </TabPanel>
+
+      <Select
+        labelId="selected-date"
+        id="demo-selectcted-date"
+        value={SelectedDate}
+        onChange={(event) => setSelectedDate(event.target.value)}
+      >
+        <MenuItem value={0}>Before Mid</MenuItem>
+        <MenuItem value={1}>After Mid</MenuItem>
+      </Select>
+      <Select
+        labelId="selceted-type"
+        id="demo-selceted-type"
+        value={SelectedType}
+        onChange={(event) => setSelectedType(event.target.value)}
+      >
+        <MenuItem value={0}>Practical</MenuItem>
+        <MenuItem value={1}>Theroretical</MenuItem>
+      </Select>
     </div>
   );
 }
 SubjectId.getLayout = function getLayout(page) {
   return <HomeLayout>{page}</HomeLayout>;
 };
-
-function TabPanel(props) {
-  const { children, value, index, ...other } = props;
-
-  return (
-    <div
-      role="tabpanel"
-      hidden={value !== index}
-      id={`simple-tabpanel-${index}`}
-      aria-labelledby={`simple-tab-${index}`}
-      {...other}
-    >
-      {value === index && (
-        <Box className="mt-10">
-          <Typography>{children}</Typography>
-        </Box>
-      )}
-    </div>
-  );
-}
-
-

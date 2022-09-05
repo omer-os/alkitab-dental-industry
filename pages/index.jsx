@@ -51,11 +51,6 @@ export default function Index() {
 
   return (
     <div className="py-4 px-6">
-      <div className="flex justify-end">
-        <IconButton>
-          <NotificationsNoneRoundedIcon color="primary" />
-        </IconButton>
-      </div>
 
       <Typography variant="h1">Categories</Typography>
       <CardContainer subjects={subjects} />

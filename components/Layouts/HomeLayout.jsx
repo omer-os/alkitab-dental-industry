@@ -1,12 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import Container from "@mui/material/Container";
 import { Box } from "@mui/system";
 import BottomNav from "./BottomNav";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
+import MyAppBar from "./MyAppBar";
 
 export default function HomeLayout({ children }) {
   return (
     <ThemeProvider theme={themeOptions}>
+      <MyAppBar />
       <Box className="text-white bg-black min-h-screen w-screen">
         <Box
           sx={{
