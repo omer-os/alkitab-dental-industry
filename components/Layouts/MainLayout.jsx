@@ -26,26 +26,6 @@ export default function MainLayout({ children }) {
           <BottomNav />
         </Box>
       </Box>
-
-     
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-      
     </ThemeProvider>
   );
 }

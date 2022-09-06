@@ -36,7 +36,7 @@ export default function CardContainer({ subjects }) {
 
       <div className="flex mt-3 z-10 flex-col gap-3">
         {subjects.map((sub, index) => (
-          <Link key={sub.slug + index} href={`/subjects/${sub.slug}`}>
+          <Link key={sub.slug + index} href={sub.link}>
             <a>
               <ButtonBase className="rounded-xl text-left">
                 <div className="min-w-[19em] snap-center flex text-sm h-[15em] rounded-xl p-4 text-white relative overflow-hidden items-end">
